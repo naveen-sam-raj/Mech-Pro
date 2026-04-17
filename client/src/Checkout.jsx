@@ -133,50 +133,6 @@ const Checkout = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-slate-100">
 
-      {/* ── Top Nav Bar ─────────────────────────────────────────────────── */}
-      <div className="bg-white border-b border-gray-100 sticky top-0 z-30 shadow-sm">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center gap-4">
-          <button
-            onClick={() => navigate("/cart")}
-            className="flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors text-sm font-medium"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to Cart
-          </button>
-
-          <div className="h-5 w-px bg-gray-200" />
-
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-emerald-600 rounded-lg flex items-center justify-center">
-              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-            </div>
-            <span className="font-extrabold text-gray-900 tracking-tight">Secure Checkout</span>
-          </div>
-
-          {/* Progress steps */}
-          <div className="ml-auto hidden md:flex items-center gap-2">
-            {["Cart", "Address", "Payment", "Confirm"].map((s, i) => (
-              <React.Fragment key={s}>
-                <div className={`flex items-center gap-1.5 text-xs font-semibold
-                  ${i === 0 ? "text-emerald-600" : i === 1 && openStep >= 1 ? "text-emerald-600" : i === 2 && openStep >= 2 ? "text-emerald-600" : "text-gray-300"}`}>
-                  <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold
-                    ${i <= openStep ? "bg-emerald-600 text-white" : "bg-gray-200 text-gray-400"}`}>
-                    {i + 1}
-                  </span>
-                  {s}
-                </div>
-                {i < 3 && <div className={`w-6 h-0.5 rounded ${i < openStep ? "bg-emerald-400" : "bg-gray-200"}`} />}
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* ── Main Content ────────────────────────────────────────────────── */}
       <div className="max-w-6xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
 

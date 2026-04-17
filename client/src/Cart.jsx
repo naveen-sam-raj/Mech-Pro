@@ -33,17 +33,7 @@ const Cart = () => {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-8">
 
         {/* ── Header ── */}
-        <div className="flex items-center justify-between mb-8 animate-fadeIn">
-          <button
-            onClick={() => navigate("/")}
-            className="flex items-center gap-2 px-4 py-2.5 bg-white/5 border border-white/10 text-gray-400 rounded-xl hover:bg-emerald-500/20 hover:text-emerald-400 hover:border-emerald-500/40 transition-all text-sm font-medium"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
-            Back
-          </button>
-
+        <div className="flex items-center justify-center mb-8 animate-fadeIn">
           <div className="flex items-center gap-3">
             <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-gray-100 to-emerald-400 bg-clip-text text-transparent">
               Shopping Cart
@@ -54,8 +44,6 @@ const Cart = () => {
               </span>
             )}
           </div>
-
-          <div className="w-16 sm:w-24" />
         </div>
 
         {/* ── Body ── */}

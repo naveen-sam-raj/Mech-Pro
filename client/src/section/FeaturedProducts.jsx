@@ -1,10 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-
-gsap.registerPlugin(ScrollTrigger);
 
 // ─── Star Rating ──────────────────────────────────────────────────────────────
 const Stars = ({ rating = 4.5 }) => {
@@ -52,7 +48,7 @@ const ProductCard = ({ p, index }) => {
                  hover:shadow-[0_12px_40px_rgba(16,185,129,0.15)]
                  hover:-translate-y-1.5
                  transition-all duration-300 ease-out"
-      style={{ minHeight: "380px" }}
+      style={{ minHeight: "360px" }}
     >
       {/* ── Top Badges ── */}
       <div className="absolute top-3 left-3 z-20 flex flex-col gap-1.5">
@@ -223,40 +219,13 @@ const ViewMoreCard = ({ cat, count }) => {
   );
 };
 
-// ─── Main Section ─────────────────────────────────────────────────────────────
+// ─── Main Section ──────────────────────────────────────────────────────────────
 const FeaturedProducts = ({ grouped }) => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".fp-heading", {
-        opacity: 0, y: -30, duration: 0.8, ease: "power3.out",
-        scrollTrigger: { trigger: ".fp-heading", start: "top 85%", toggleActions: "play none none none" },
-      });
-
-      gsap.utils.toArray(".category-header").forEach((el) => {
-        gsap.from(el, {
-          opacity: 0, x: -50, duration: 0.6, ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none none" },
-        });
-      });
-
-      gsap.utils.toArray(".product-card, .view-more-card").forEach((card, i) => {
-        gsap.from(card, {
-          opacity: 0, y: 50, duration: 0.6, delay: (i % 4) * 0.07,
-          ease: "power3.out",
-          scrollTrigger: { trigger: card, start: "top 92%", toggleActions: "play none none none" },
-        });
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, [grouped]);
 
   const hasProducts = grouped && Object.keys(grouped).length > 0;
 
   return (
-    <section ref={sectionRef} className="py-20 bg-[#f7faf9] relative">
+    <section className="py-20 bg-[#f7faf9] relative">
       {/* top accent line */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 via-teal-500 to-emerald-600" />
 

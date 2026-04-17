@@ -28,20 +28,10 @@ const Contact = () => {
     <div className="bg-[#f2f7f5] min-h-screen px-6 py-14 text-gray-800">
       <div className="max-w-6xl mx-auto">
         {/* ================= HEADER ================= */}
-        <div className="flex justify-between items-center mb-10">
-          <button
-            onClick={() => navigate("/")}
-            className="bg-emerald-700 text-white px-6 py-2 rounded-lg hover:bg-emerald-800 transition"
-          >
-             Back
-          </button>
-
-          <h1 className="text-3xl font-bold text-emerald-700 flex-1 text-center">
+        <div className="flex justify-center items-center mb-10">
+          <h1 className="text-3xl font-bold text-emerald-700 text-center">
             Contact Us
           </h1>
-
-          {/* empty div for alignment */}
-          <div className="w-24"></div>
         </div>
 
         {/* ================= FORM CARD ================= */}

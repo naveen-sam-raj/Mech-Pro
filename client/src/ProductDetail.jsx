@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useCart } from "./context/CartContext";
 import API from "./api/axios";
-import { GoTools } from "react-icons/go";
+import productsData from "./db";
 
 // ─── Star Rating ───────────────────────────────────────────────────────────────
 const Stars = ({ rating = 4.5 }) => (
@@ -31,10 +31,9 @@ const ProductDetail = () => {
   const [added, setAdded] = useState(false);
   const [qty, setQty] = useState(1);
 
-  // Load product — try localStorage first, then MongoDB API
+  // Load product — try db.js first, then MongoDB API
   useEffect(() => {
-    const localProducts = JSON.parse(localStorage.getItem("products")) || [];
-    const found = localProducts.find(
+    const found = productsData.find(
       (p) => String(p.id) === String(id) || String(p._id) === String(id)
     );
 
@@ -42,7 +41,7 @@ const ProductDetail = () => {
       setProduct(found);
       setLoading(false);
     } else {
-      // Try MongoDB
+      // Try MongoDB (supplier products)
       API.get(`/tools/${id}`)
         .then((res) => {
           setProduct(res.data);
@@ -97,7 +96,7 @@ const ProductDetail = () => {
           onClick={() => navigate("/")}
           className="px-8 py-3 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition-colors"
         >
-          Back to Home
+          Browse Products
         </button>
       </div>
     );
@@ -111,54 +110,6 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen bg-[#f2f7f5]">
-      {/* ── Navbar ── */}
-      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-4">
-          <div
-            className="flex items-center gap-2 cursor-pointer group"
-            onClick={() => navigate("/")}
-          >
-            <div className="bg-gradient-to-br from-emerald-600 to-emerald-700 p-2 rounded-xl">
-              <GoTools size={18} className="text-white" />
-            </div>
-            <span className="font-bold text-lg text-gray-900">MechPro</span>
-          </div>
-
-          <div className="h-5 w-px bg-gray-200" />
-
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400">
-            <span
-              className="hover:text-emerald-600 cursor-pointer transition-colors"
-              onClick={() => navigate("/")}
-            >
-              Home
-            </span>
-            <span>/</span>
-            <span
-              className="hover:text-emerald-600 cursor-pointer transition-colors capitalize"
-              onClick={() => navigate("/categories")}
-            >
-              {product.category || "Products"}
-            </span>
-            <span>/</span>
-            <span className="text-gray-700 font-medium truncate max-w-[200px]">
-              {product.name}
-            </span>
-          </nav>
-
-          <button
-            onClick={() => navigate(-1)}
-            className="ml-auto flex items-center gap-2 text-sm text-gray-500 hover:text-emerald-600 font-medium transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back
-          </button>
-        </div>
-      </header>
-
       {/* ── Main Content ── */}
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">

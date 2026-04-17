@@ -27,20 +27,10 @@ const About = () => {
     <div className="bg-[#f2f7f5] min-h-screen text-gray-800 px-6 py-14">
       <div className="max-w-6xl mx-auto">
         {/* ================= HEADER ================= */}
-        <div className="flex justify-between items-center mb-12">
-          <button
-            onClick={() => navigate("/")}
-            className="bg-emerald-700 text-white px-6 py-2 rounded-lg hover:bg-emerald-800 transition"
-          >
-            Back
-          </button>
-
-          <h1 className="text-4xl font-bold text-emerald-700 flex-1 text-center">
+        <div className="flex justify-center items-center mb-12">
+          <h1 className="text-4xl font-bold text-emerald-700 text-center">
             About MechProTools
           </h1>
-
-          {/* spacer */}
-          <div className="w-24"></div>
         </div>
 
         {/* ================= INTRO ================= */}

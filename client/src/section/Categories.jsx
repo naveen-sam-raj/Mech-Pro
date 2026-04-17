@@ -42,29 +42,28 @@ const Categories = ({ grouped }) => {
     const ctx = gsap.context(() => {
       // Heading animation
       gsap.from(headingRef.current, {
-        opacity: 0,
-        y: -60,
-        scale: 0.8,
+        y: -40,
+        scale: 0.9,
         duration: 1,
         ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 80%",
+          start: "top 105%",
+          once: true,
         },
       });
 
       // Cards stagger animation
       gsap.from(cardsRef.current, {
-        opacity: 0,
-        y: 100,
-        rotationX: -90,
-        scale: 0.7,
-        stagger: 0.15,
-        duration: 0.8,
+        y: 60,
+        scale: 0.85,
+        stagger: 0.12,
+        duration: 0.7,
         ease: "back.out(1.4)",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 70%",
+          start: "top 105%",
+          once: true,
         },
       });
 

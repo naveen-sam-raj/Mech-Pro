@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { GoTools } from "react-icons/go";
 import API from "./api/axios";
 
 // ── Tracking Steps ─────────────────────────────────────────────────────────────
@@ -315,35 +314,6 @@ const MyOrders = () => {
 
   return (
     <div className="min-h-screen bg-[#f2f7f5]">
-
-      {/* ── Navbar ── */}
-      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-4">
-          <div
-            className="flex items-center gap-2 cursor-pointer group"
-            onClick={() => navigate("/")}
-          >
-            <div className="bg-gradient-to-br from-emerald-600 to-emerald-700 p-2 rounded-xl">
-              <GoTools size={18} className="text-white" />
-            </div>
-            <span className="font-bold text-lg text-gray-900">MechPro</span>
-          </div>
-
-          <div className="h-5 w-px bg-gray-200" />
-
-          <h1 className="text-sm font-bold text-gray-700">My Orders</h1>
-
-          <button
-            onClick={() => navigate("/")}
-            className="ml-auto flex items-center gap-2 text-sm text-gray-500 hover:text-emerald-600 font-medium transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to Home
-          </button>
-        </div>
-      </header>
 
       {/* ── Content ── */}
       <div className="max-w-4xl mx-auto px-6 py-10">

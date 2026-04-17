@@ -12,14 +12,14 @@ const WhyChooseUs = () => {
     const ctx = gsap.context(() => {
       // Simple card entrance animation
       gsap.from(cardsRef.current, {
-        opacity: 0,
-        y: 40,
-        duration: 0.6,
-        stagger: 0.15,
+        y: 30,
+        duration: 0.5,
+        stagger: 0.12,
         ease: "power2.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 80%",
+          start: "top 105%",
+          once: true,
         },
       });
     }, sectionRef);
