@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-
-const BASE_URL = `http://${window.location.hostname}:5000`;
+import API from "../api/axios";
 
 const SupplierLogin = () => {
   const navigate = useNavigate();
@@ -22,7 +20,7 @@ const SupplierLogin = () => {
     setError("");
 
     try {
-      const res = await axios.post(`${BASE_URL}/api/supplier/login`, {
+      const res = await API.post(`/supplier/login`, {
         email,
         password,
       });

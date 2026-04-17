@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../api/axios";
 
-const BASE_URL = `http://${window.location.hostname}:5000`;
+const BASE_URL = import.meta.env.VITE_API_URL
+  ? import.meta.env.VITE_API_URL.replace("/api", "")
+  : `http://${window.location.hostname}:5000`;
 
 const MyProducts = () => {
   const navigate = useNavigate();

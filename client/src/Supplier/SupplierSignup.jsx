@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../api/axios";
 
 const SupplierSignup = () => {
   const navigate = useNavigate();
@@ -14,9 +14,7 @@ const SupplierSignup = () => {
   // ⭐ submit function
   const handleSignup = async () => {
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/supplier/signup",
-        {
+      const res = await API.post("/supplier/signup", {
           name,
           email,
           phone,

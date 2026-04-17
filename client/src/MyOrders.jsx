@@ -248,7 +248,7 @@ const OrderCard = ({ order }) => {
                   <div className="w-10 h-10 rounded-lg bg-gray-100 overflow-hidden shrink-0 flex items-center justify-center">
                     {item.image ? (
                       <img
-                        src={item.image.startsWith("/uploads") ? `http://localhost:5000${item.image}` : item.image}
+                        src={item.image.startsWith("/uploads") ? `${import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace('/api','') : `http://${window.location.hostname}:5000`}${item.image}` : item.image}
                         alt={item.name}
                         className="w-full h-full object-contain p-1"
                         onError={(e) => (e.target.style.display = "none")}

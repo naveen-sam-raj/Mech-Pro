@@ -105,7 +105,7 @@ const ProductDetail = () => {
 
   const imageSrc = product.image
     ? product.image.startsWith("/uploads")
-      ? `http://localhost:5000${product.image}`
+      ? `${import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace('/api','') : `http://${window.location.hostname}:5000`}${product.image}`
       : product.image
     : `https://placehold.co/500x400/f0fdf4/16a34a?text=${encodeURIComponent(product.name?.slice(0, 12) || "Product")}`;
 
